@@ -21,7 +21,6 @@ public class Proyectoanalisis2 {
         // TODO code application logic here
     Servidor ser = Servidor.nuevaInstacia();
     ser.conexion();
-    
     ser.desconexion();
     }
     
