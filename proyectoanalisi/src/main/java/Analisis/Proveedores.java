@@ -2,7 +2,7 @@ package Analisis;
 
 import java.util.Vector;
 
-public class Proveedor {
+public class Proveedores {
 
   private String descripcion;
 
