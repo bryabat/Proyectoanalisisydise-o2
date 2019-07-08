@@ -18,7 +18,6 @@ public class Usuarios {
       return Usuarios.usuario;
   }
     public void Inicio(String nombre,String contrasenia,Servidor servidor){
-        int aux=0;
         EntityManager mn= servidor.getEm();
         TypedQuery<Usuario> query=mn.createNamedQuery("Usuario.findAll", Usuario.class);
         List<Usuario> listaProductos=query.getResultList();

@@ -40,8 +40,6 @@ public class Usuario implements Serializable {
     @Column(name = "contrasenia")
     private String contrasenia;
 
-    public Usuario() {
-    }
 
     public Usuario(Integer idusuario) {
         this.idusuario = idusuario;

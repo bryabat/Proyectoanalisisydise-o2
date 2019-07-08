@@ -5,6 +5,7 @@
  */
 package Analisis;
 
+import com.mycompany.proyectoanalisi.base.Usuario;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -21,6 +22,8 @@ public class Proyectoanalisis2 {
         // TODO code application logic here
     Servidor ser = Servidor.nuevaInstacia();
     ser.conexion();
+    Usuarios usuario = new Usuarios();
+    usuario.Inicio("usu1", "1234", ser);
     ser.desconexion();
     }
     
