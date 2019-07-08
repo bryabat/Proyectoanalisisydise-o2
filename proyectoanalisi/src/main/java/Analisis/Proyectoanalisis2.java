@@ -5,6 +5,9 @@
  */
 package Analisis;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author EQUIPO
@@ -16,6 +19,10 @@ public class Proyectoanalisis2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    Servidor ser = Servidor.nuevaInstacia();
+    ser.conexion();
+    
+    ser.desconexion();
     }
     
 }
