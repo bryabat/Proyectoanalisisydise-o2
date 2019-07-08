@@ -12,5 +12,7 @@ public class Usuario {
       }
       return Usuario.usuario;
   }
-
+    public void Inicio(String nombre,String contrasenia){
+  
+    }
 }

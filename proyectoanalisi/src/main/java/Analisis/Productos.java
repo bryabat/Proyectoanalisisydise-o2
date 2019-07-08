@@ -28,7 +28,9 @@ public class Productos extends Pedido {
         this.Existencia = Existencia;
 
     }
-  
+    public Productos(){
+        
+    }
   
   public void nuevoProducto(){
         Producto producto= new Producto(); 
