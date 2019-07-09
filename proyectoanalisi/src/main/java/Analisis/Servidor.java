@@ -26,7 +26,7 @@ public class Servidor {
       return Servidor.unicoservidor;
   }
     public void conexion(){
-        mp=Persistence.createEntityManagerFactory("ycomercial");
+        mp=Persistence.createEntityManagerFactory("ycomercia");
         em=mp.createEntityManager();
     }   
     public void desconexion(){

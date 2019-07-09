@@ -60,7 +60,6 @@ public class ProveedorJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -116,7 +115,7 @@ public class ProveedorJpaController implements Serializable {
             throw ex;
         } finally {
             if (em != null) {
-                em.close();
+               
             }
         }
     }
@@ -148,7 +147,7 @@ public class ProveedorJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
+     
             }
         }
     }
@@ -173,7 +172,7 @@ public class ProveedorJpaController implements Serializable {
             }
             return q.getResultList();
         } finally {
-            em.close();
+          
         }
     }
 
@@ -182,7 +181,7 @@ public class ProveedorJpaController implements Serializable {
         try {
             return em.find(Proveedor.class, id);
         } finally {
-            em.close();
+            
         }
     }
 
@@ -195,7 +194,7 @@ public class ProveedorJpaController implements Serializable {
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
-            em.close();
+         
         }
     }
     
