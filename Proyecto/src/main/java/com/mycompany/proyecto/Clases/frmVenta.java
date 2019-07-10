@@ -18,6 +18,7 @@ public class frmVenta extends javax.swing.JFrame {
 public Usuarios usuario;
 public Servidor servidor; 
 public Proveedor proveedor= null;
+private Pedido pedido;
     /**
      * Creates new form frmVenta
      */
@@ -28,7 +29,7 @@ public Proveedor proveedor= null;
         this.usuario = usuarios;
         lblproveedor.setText(nombre);
         if(!nombre.equals("")){
-            Pedido pedido=new Pedido();
+            pedido=new Pedido();
             pedido.busqueda(nombre, servidor);
             this.proveedor=pedido.getProveedor();
             ArrayList<Producto> productos=pedido.getProductos();
@@ -47,31 +48,35 @@ public Proveedor proveedor= null;
 
         panelVenta = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSeleccionarProveedor = new javax.swing.JButton();
+        btnSeleccionarProductos = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lblproveedor = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lbltotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcompras = new javax.swing.JTable();
-        lblid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("compras");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Seleccionar Proveedor");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionarProveedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSeleccionarProveedor.setText("Seleccionar Proveedor");
+        btnSeleccionarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSeleccionarProveedorActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Seleccionar Productos");
+        btnSeleccionarProductos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSeleccionarProductos.setText("Seleccionar Productos");
+        btnSeleccionarProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarProductosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Proveedor:");
@@ -103,8 +108,6 @@ public Proveedor proveedor= null;
         });
         jScrollPane1.setViewportView(tblcompras);
 
-        lblid.setText("jLabel3");
-
         javax.swing.GroupLayout panelVentaLayout = new javax.swing.GroupLayout(panelVenta);
         panelVenta.setLayout(panelVentaLayout);
         panelVentaLayout.setHorizontalGroup(
@@ -116,21 +119,17 @@ public Proveedor proveedor= null;
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel1))
-                .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panelVentaLayout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(lblproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))
-                        .addGroup(panelVentaLayout.createSequentialGroup()
-                            .addGap(51, 51, 51)
-                            .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(126, 126, 126)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelVentaLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(lblid, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSeleccionarProveedor))
+                    .addGroup(panelVentaLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(126, 126, 126)
+                        .addComponent(btnSeleccionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
@@ -139,19 +138,17 @@ public Proveedor proveedor= null;
             .addGroup(panelVentaLayout.createSequentialGroup()
                 .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelVentaLayout.createSequentialGroup()
-                        .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblid))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSeleccionarProveedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbltotal)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSeleccionarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
         );
@@ -174,7 +171,7 @@ public Proveedor proveedor= null;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSeleccionarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProveedorActionPerformed
         // TODO add your handling code here:
         VectorProveedores listaTabla= new VectorProveedores();
         EntityManager mn= servidor.getEm();
@@ -187,20 +184,24 @@ public Proveedor proveedor= null;
         frmSeleccionDeProveedor formsProveedor= new frmSeleccionDeProveedor(servidor,usuario,proxyproveedor);
         formsProveedor.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSeleccionarProveedorActionPerformed
+
+    private void btnSeleccionarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarProductosActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnSeleccionarProductosActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnSeleccionarProductos;
+    private javax.swing.JButton btnSeleccionarProveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblid;
     private javax.swing.JLabel lblproveedor;
     private javax.swing.JLabel lbltotal;
     private javax.swing.JPanel panelVenta;
