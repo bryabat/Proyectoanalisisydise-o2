@@ -26,7 +26,6 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author EQUIPO
  */
 @Entity
 @Table(name = "compras")

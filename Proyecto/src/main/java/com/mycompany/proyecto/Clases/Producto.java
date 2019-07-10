@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author EQUIPO
+ * @author pedro
  */
 @Entity
 @Table(name = "producto")

@@ -54,6 +54,11 @@ public Servidor servidor;
         });
 
         jbotonpedidos.setText("Pedidos");
+        jbotonpedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbotonpedidosActionPerformed(evt);
+            }
+        });
 
         jbotonproductos.setText("Productos");
         jbotonproductos.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +150,13 @@ public Servidor servidor;
         formsProveedor.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jbotonproveedorActionPerformed
+
+    private void jbotonpedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbotonpedidosActionPerformed
+        // TODO add your handling code here:
+        frmVenta ventas = new frmVenta(servidor,usuario, "");
+        ventas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbotonpedidosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
