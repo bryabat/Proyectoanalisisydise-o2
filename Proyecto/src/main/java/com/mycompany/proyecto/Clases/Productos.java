@@ -6,7 +6,10 @@
 package com.mycompany.proyecto.Clases;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 /**
  *

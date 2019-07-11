@@ -15,8 +15,11 @@ private Usuarios usuario;
     /**
      * Creates new form IngresoProveedores
      */
-    public IngresoProveedores() {
+    public IngresoProveedores(Servidor servidor,Usuarios usuarios) {
         initComponents();
+        this.servidor=servidor;
+        this.usuario=usuarios;
+        this.setLocationRelativeTo(null); 
     }
 
     /**
@@ -42,6 +45,7 @@ private Usuarios usuario;
         jBotnoRegreso = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setText("Nombre:");
 
@@ -142,20 +146,14 @@ private Usuarios usuario;
         proveedor.setCorreo(jCorreo.getText());
         ProveedorJpaController controlingreso =new ProveedorJpaController(servidor.getMp());
         controlingreso.create(proveedor);
-        jnombre.setText("");
-        jnit.setText("");
-        jdireccion.setText("");
-        jTelefono.setText("");
-        jCorreo.setText("");
     }//GEN-LAST:event_jBotonIngresoActionPerformed
 
     private void jBotnoRegresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotnoRegresoActionPerformed
         // TODO add your handling code here:
-        Menu menu= new Menu(usuario, servidor);
+        Menu menu=new Menu(usuario, servidor);
         menu.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jBotnoRegresoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotnoRegreso;
