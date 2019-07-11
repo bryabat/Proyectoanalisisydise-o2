@@ -17,7 +17,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author pedro
+ * @author EQUIPO
  */
 public class DevolucionesJpaController implements Serializable {
 
@@ -48,7 +48,6 @@ public class DevolucionesJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -86,7 +85,6 @@ public class DevolucionesJpaController implements Serializable {
             throw ex;
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -112,7 +110,6 @@ public class DevolucionesJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -137,7 +134,6 @@ public class DevolucionesJpaController implements Serializable {
             }
             return q.getResultList();
         } finally {
-            em.close();
         }
     }
 
@@ -146,7 +142,6 @@ public class DevolucionesJpaController implements Serializable {
         try {
             return em.find(Devoluciones.class, id);
         } finally {
-            em.close();
         }
     }
 
@@ -159,7 +154,6 @@ public class DevolucionesJpaController implements Serializable {
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
-            em.close();
         }
     }
     

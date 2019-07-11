@@ -20,7 +20,7 @@ import javax.persistence.EntityManagerFactory;
 
 /**
  *
- * @author pedro
+ * @author EQUIPO
  */
 public class ComprasJpaController implements Serializable {
 
@@ -69,7 +69,6 @@ public class ComprasJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -139,7 +138,6 @@ public class ComprasJpaController implements Serializable {
             throw ex;
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -176,7 +174,6 @@ public class ComprasJpaController implements Serializable {
             em.getTransaction().commit();
         } finally {
             if (em != null) {
-                em.close();
             }
         }
     }
@@ -201,7 +198,6 @@ public class ComprasJpaController implements Serializable {
             }
             return q.getResultList();
         } finally {
-            em.close();
         }
     }
 
@@ -210,7 +206,6 @@ public class ComprasJpaController implements Serializable {
         try {
             return em.find(Compras.class, id);
         } finally {
-            em.close();
         }
     }
 
@@ -223,7 +218,6 @@ public class ComprasJpaController implements Serializable {
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
         } finally {
-            em.close();
         }
     }
     

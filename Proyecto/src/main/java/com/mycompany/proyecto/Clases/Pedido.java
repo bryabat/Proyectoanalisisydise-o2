@@ -5,14 +5,7 @@
  */
 package com.mycompany.proyecto.Clases;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 /**
  *
@@ -20,30 +13,15 @@ import javax.persistence.TypedQuery;
  */
 public class Pedido {
     private Proveedor proveedor;
-    private ArrayList<Producto> productos;
-    public Pedido(){
-        productos=new ArrayList<>();
+    private List<Productos> productos;
+    public Pedido(Proveedor proveedor){
+        this.proveedor=proveedor;
     }
-    public void agregar(Producto producto){
+    public void agregar(Productos producto){
         this.productos.add(producto);
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-    
-
-    public ArrayList<Producto> getProductos() {
+    public List<Productos> getProductos() {
         return productos;
-    }
-    public void busqueda(String nombre, Servidor servidor){
-        EntityManager mn= servidor.getEm();
-        TypedQuery<Proveedor> query=mn.createNamedQuery("Proveedor.findAll", Proveedor.class);
-        List<Proveedor> listaProductos=query.getResultList();
-        for (Proveedor proveedor : listaProductos) {
-            if (proveedor.getNombre().equals(nombre)) {
-                this.proveedor = proveedor;
-            }
-        }
     }
 }
